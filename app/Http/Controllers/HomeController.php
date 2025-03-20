@@ -7,15 +7,12 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+   
     public function index()
     {
         $categories = Home::with('tasks')->get(); // ✅ Correct (Home is the categories model)
         return view('home', compact('categories'));
     }
-    
 
     public function add(Request $request){
 
@@ -30,49 +27,6 @@ class HomeController extends Controller
         return redirect()->route('home');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Home $cr)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Home $cr)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Home $cr)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function deleteCategory($id)
     {
         $category = Home::findOrFail($id);

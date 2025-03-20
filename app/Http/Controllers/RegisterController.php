@@ -31,7 +31,7 @@ class RegisterController extends Controller
         ]);
 
 
-        return redirect()->route('register.show')->with([
+        return redirect()->route('login.show')->with([
             'success' => 'Registration successful! You can now log in.'
         ]);
     }
